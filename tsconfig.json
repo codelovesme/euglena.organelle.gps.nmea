@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": true,
+        "removeComments": false,
+        "sourceMap": false,
+        "declaration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        //"mapRoot": "/",
+        "moduleResolution": "node",
+        "noEmitOnError": true,
+        "rootDir": ".",
+        "inlineSources": false
+    },
+    "exclude":[
+        "node_modules",
+        "typings",
+        "dist",
+        ".vscode",
+        "typings"
+    ]
+}
