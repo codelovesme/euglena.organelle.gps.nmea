@@ -17,20 +17,19 @@ export class Organelle extends euglena_template.being.alive.organelle.GPSOrganel
     protected bindActions(addAction: (particleName: string, action: (particle: Particle, callback: (particle: Particle) => void) => void) => void): void {
         addAction(euglena_template.being.alive.constants.particles.WebUIOrganelleSap, (particle) => {
             this.sapContent = particle.data;
-            let this_ = this;
 
             var port = new SerialPort(this.sapContent.port, { // change path 
                 baudrate: 4800,
                 parser: SerialPort.parsers.readline('\r\n')
             });
 
-            port.on('data', function (data) {
+            port.on('data', data => {
                 gps.update(data);
             });
 
-            gps.on('data', function (data) {
+            gps.on('data', data => {
                 if(gps.state.lat && gps.state.lon){
-                    this_.send(new euglena_template.being.alive.particle.Coordinate(gps.state.lat,gps.state.lon,this_.sapContent.euglenaName),this_.name);
+                    this.send(new euglena_template.being.alive.particle.Coordinate(gps.state.lat,gps.state.lon,this.sapContent.euglenaName),this.name);
                 }
             });
         });
