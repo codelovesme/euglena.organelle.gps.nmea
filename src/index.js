@@ -6,7 +6,7 @@ var GPS = require('gps');
 var gps = new GPS;
 class Organelle extends euglena_template_1.euglena_template.being.alive.organelle.GPSOrganelle {
     bindActions(addAction) {
-        addAction(euglena_template_1.euglena_template.being.alive.constants.particles.WebUIOrganelleSap, (particle) => {
+        addAction(euglena_template_1.euglena_template.being.alive.constants.particles.GPSOrganelleSap, (particle) => {
             this.sapContent = particle.data;
             var port = new SerialPort(this.sapContent.port, {
                 baudrate: 4800,
