@@ -140,6 +140,7 @@ var euglena_template;
                     particles.Subscribe = "Subscribe";
                     particles.SubscribtionDict = "SubscribtionDict";
                     particles.Password = "Password";
+                    particles.MatchedParticles = "MatchedParticles";
                 })(particles = constants.particles || (constants.particles = {}));
                 var organelles;
                 (function (organelles) {
@@ -226,6 +227,14 @@ var euglena_template;
             })(organelle = alive.organelle || (alive.organelle = {}));
             var particle;
             (function (particle) {
+                var MatchedParticles = (function (_super) {
+                    __extends(MatchedParticles, _super);
+                    function MatchedParticles(content, of) {
+                        return _super.call(this, { name: constants.particles.MatchedParticles, of: of }, content) || this;
+                    }
+                    return MatchedParticles;
+                }(Particle));
+                particle.MatchedParticles = MatchedParticles;
                 var Password = (function (_super) {
                     __extends(Password, _super);
                     function Password(euglenaName, value) {
