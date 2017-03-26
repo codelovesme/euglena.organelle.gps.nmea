@@ -17,7 +17,7 @@ class Organelle extends euglena_template_1.euglena_template.being.alive.organell
             });
             gps.on('data', data => {
                 if (gps.state.lat && gps.state.lon) {
-                    this.send(new euglena_template_1.euglena_template.being.alive.particle.Coordinate(gps.state.lat, gps.state.lon, this.sapContent.euglenaName, new Date().getTime()), this.name);
+                    this.send(new euglena_template_1.euglena_template.being.alive.particle.Coordinate(Number(gps.state.lat), Number(gps.state.lon), this.sapContent.euglenaName), this.name);
                 }
             });
         });
