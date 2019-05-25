@@ -1,24 +1,9 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
-        "noImplicitAny": false,
-        "removeComments": false,
-        "sourceMap": false,
-        "declaration": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        //"mapRoot": "/",
-        "moduleResolution": "node",
-        "noEmitOnError": true,
-        "rootDir": ".",
-        "inlineSources": false
-    },
-    "exclude":[
-        "node_modules",
-        "typings",
-        "dist",
-        ".vscode",
-        "typings"
-    ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "declaration": true,
+    "target": "es6"
+  },
+  "files": ["src/index.ts"]
 }

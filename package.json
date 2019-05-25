@@ -17,9 +17,14 @@
   },
   "homepage": "https://github.com/codelovesme/euglena.organelle.gps.nmea#readme",
   "dependencies": {
-    "euglena": "codelovesme/euglena.git#develop",
-    "euglena.template": "codelovesme/euglena.template.git",
-    "gps": "^0.2.0",
+    "@euglena/core": "^0.1.7",
+    "@euglena/template": "^2.2.0",
+    "gps": "^0.5.2",
     "serialport": "^7.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.2",
+    "@types/serialport": "^7.0.3",
+    "typescript": "^3.4.5"
   }
 }

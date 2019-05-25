@@ -1,23 +1,27 @@
-/// <reference path="../typings/index.d.ts" />
 "use strict";
-const euglena_template_1 = require("euglena.template");
+Object.defineProperty(exports, "__esModule", { value: true });
+const euglena_template = require("@euglena/template");
 const SerialPort = require("serialport");
-var GPS = require('gps');
-var gps = new GPS;
-class Organelle extends euglena_template_1.euglena_template.being.alive.organelle.GPSOrganelle {
+var GPS = require("gps");
+var gps = new GPS();
+class Organelle extends euglena_template.alive.organelle.GPSOrganelle {
     bindActions(addAction) {
-        addAction(euglena_template_1.euglena_template.being.alive.constants.particles.GPSOrganelleSap, (particle) => {
+        addAction(euglena_template.alive.constants.particles.GPSOrganelleSap, particle => {
             this.sapContent = particle.data;
+            console.log("connection via serialport");
             var port = new SerialPort(this.sapContent.port, {
-                baudrate: 4800,
-                parser: SerialPort.parsers.readline('\r\n')
+                baudRate: 4800
             });
-            port.on('data', data => {
-                gps.update(data);
+            console.log("listening");
+            port.on("data", (data) => {
+                console.log("gps update");
+                gps.updatePartial(data);
             });
-            gps.on('data', data => {
+            gps.on("data", () => {
+                console.log("on gps data");
                 if (gps.state.lat && gps.state.lon) {
-                    this.send(new euglena_template_1.euglena_template.being.alive.particle.Coordinate(Number(gps.state.lat), Number(gps.state.lon), this.sapContent.euglenaName), this.name);
+                    console.log("on gps data inner");
+                    this.send(new euglena_template.alive.particle.Coordinate(Number(gps.state.lat), Number(gps.state.lon), this.sapContent.euglenaName));
                 }
             });
         });
